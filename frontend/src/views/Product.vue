@@ -15,7 +15,7 @@
                 <div class="mt-4 mb-5">
                     <input type="number" class="input" min="1" max="10" v-model="quantity">
                 </div>
-                <div> Add to Card </div>
+                <button @click="addToCart"> Add to Card </button>
             </div>
             <div class="col-1"></div>
         </div>
@@ -52,6 +52,23 @@ export default {
                 .catch(error => {
                     console.log('error')
                 })
+        },
+
+        addToCart() {
+
+            console.log('sad')
+            if (isNaN(this.quantity) || this.quantity < 1) {
+                this.quantity = 1
+            }
+
+            const items = {
+                product: this.product,
+                quantity: this.quantity
+
+            }
+
+            this.$store.commit('addToCart', items)
+            console.log(items.quantity, "!!!")
         },
     }
 }

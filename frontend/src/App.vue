@@ -34,6 +34,7 @@
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <button class="btn btn-outline-success my-2 my-sm-0 ml-2" type="submit">Cart ({{cartTotalLength}})</button>
     </form>
   </div>
 </nav>
@@ -50,6 +51,40 @@
 
   </div>
 </template>
+
+<script>
+export default {
+data() {
+  return {
+    cart: {
+      items: []
+    }
+  }
+},
+beforeCreate() {
+  return this.$store.commit('initializeStore')
+},
+mounted() {
+  this.cart = this.$store.state.cart
+  
+  console.log(this.cart.items, '!!!!!!!!!!!!!!!!!')
+},
+computed: {
+  cartTotalLength() {
+    let totalLength = 0
+    console.log('asd', totalLength)
+
+    for (let i = 0; i < this.cart.items.length; i++) {
+      totalLength += this.cart.items[i].quantity
+    }
+    return totalLength
+  }
+}
+}
+
+
+
+</script>
 
 <style lang="scss">
 #app {
