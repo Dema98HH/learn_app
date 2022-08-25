@@ -20,7 +20,7 @@ export default createStore({
       }
     },
     addToCart(state, item) {
-      console.log("add to cart")
+
       const exists = state.cart.items.filter(i => i.product.id === item.product.id)
 
       if (exists.length) {
@@ -28,7 +28,7 @@ export default createStore({
       } else {
         state.cart.items.push(item)
       }
-      console.log(item.quantity,"aaaaaaaa")
+
       localStorage.setItem('cart', JSON.stringify(state.cart))
     }
   },

@@ -17,7 +17,9 @@
                 <h3>{{ product.name }}</h3>
                 <p>${{ product.price }}</p>
             </div>
+            <button type="button" class="btn btn-outline-dark btn-sm">
             <router-link v-bind:to="product.get_absolute_url" class="btn">View details</router-link>
+            </button>
         </div>
       </div>
     </div>
@@ -40,6 +42,8 @@ export default {
   },
   mounted() {
       this.getLatestProducts()
+
+      document.title = 'Home | Shop'
   },
 
   methods: {

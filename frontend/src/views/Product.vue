@@ -40,23 +40,26 @@ export default {
 
     
     methods: {
-        getProduct() {
+        async getProduct() {
+
             const category_slug = this.$route.params.category_slug
             const product_slug = this.$route.params.product_slug
 
-            axios
+            await axios
                 .get(`/api/v1/products/${category_slug}/${product_slug}`)
                 .then(response => {
                     this.product = response.data
+
+                    document.title = this.product.name + ' | Shop'
                 })
                 .catch(error => {
                     console.log('error')
                 })
+
         },
 
         addToCart() {
 
-            console.log('sad')
             if (isNaN(this.quantity) || this.quantity < 1) {
                 this.quantity = 1
             }
@@ -68,7 +71,6 @@ export default {
             }
 
             this.$store.commit('addToCart', items)
-            console.log(items.quantity, "!!!")
         },
     }
 }

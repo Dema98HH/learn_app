@@ -40,6 +40,7 @@
 </nav>
 
 
+
 <!---->
   <section>
       <router-view/>
@@ -67,12 +68,10 @@ beforeCreate() {
 mounted() {
   this.cart = this.$store.state.cart
   
-  console.log(this.cart.items, '!!!!!!!!!!!!!!!!!')
 },
 computed: {
   cartTotalLength() {
     let totalLength = 0
-    console.log('asd', totalLength)
 
     for (let i = 0; i < this.cart.items.length; i++) {
       totalLength += this.cart.items[i].quantity
