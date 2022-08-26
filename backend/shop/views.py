@@ -5,7 +5,7 @@ from rest_framework.response import Response
 
 from django.http import Http404
 from .models import Category, Product
-from .serializers import ProductSerializer
+from .serializers import ProductSerializer, CategorySerializer
 
 # Create your views here.
 
@@ -31,7 +31,7 @@ class ProductDetail(APIView):
 
 
 
-class CategoryDetai(APIView):
+class CategoryDetail(APIView):
     def get_object(self, category_slug):
         try:
             return Category.objects.get(slug=category_slug)

@@ -23,6 +23,11 @@
         </div>
       </div>
     </div>
+
+    <!--<ProductBox
+      v-for="product in latestProducts"
+      v-bind:key="product.id"
+      v-bind:product="product" /> -->
   </div>
 
 </template>
@@ -30,6 +35,8 @@
 <script>
 // @ is an alias to /src
 import axios from 'axios'
+
+import ProductBox from '@/components/ProductBox.vue'
 
 export default {
   name: 'HomeView',
@@ -39,7 +46,8 @@ export default {
     }
   },
   components: {
-  },
+    ProductBox,
+},
   mounted() {
       this.getLatestProducts()
 
