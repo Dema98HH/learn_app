@@ -1,6 +1,9 @@
+from itertools import product
 from unicodedata import category
 from django.shortcuts import render
+from django.db.models import Q
 from rest_framework.views import APIView
+from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 from django.http import Http404
@@ -42,3 +45,17 @@ class CategoryDetail(APIView):
         category = self.get_object(category_slug)
         serializer = CategorySerializer(category)
         return Response(serializer.data)
+
+
+
+@api_view(['POST'])
+def search(request):
+    query = request.data.get('query', '')
+
+    if query:
+        products = Product.objects.filter(Q(name__icontains=query) | Q(description__icontains=query))
+        serializer = ProductSerializer(products, many=True)
+        
+        return Response(serializer.data)
+    else:
+        return Response({"products": []})
