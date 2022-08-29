@@ -31,7 +31,8 @@
       <input class="form-control mr-sm-2" type="search" placeholder="Waht are you looking for?" aria-label="Search" name="query">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
-          <button class="btn btn-outline-success my-2 my-sm-0 ml-2" type="submit">Cart ({{cartTotalLength}})</button>
+        <router-link to="/cart" class="btn btn-outline-success my-2 my-sm-0 ml-2" type="submit">Cart ({{cartTotalLength}})</router-link>
+          <!--<button class="btn btn-outline-success my-2 my-sm-0 ml-2" type="submit">Cart ({{cartTotalLength}})</button>-->
   </div>
 </nav>
 

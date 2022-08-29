@@ -18,7 +18,7 @@
                 <p>${{ product.price }}</p>
             </div>
             <button type="button" class="btn btn-outline-dark btn-sm">
-            <router-link v-bind:to="product.get_absolute_url" class="btn">View details</router-link>
+              <router-link v-bind:to="product.get_absolute_url" class="btn">View details</router-link>
             </button>
         </div>
       </div>
