@@ -5,7 +5,7 @@
         <h2 class="is-size-2 has-text-centered">Latest products</h2>
     </div>
     <div class="row mt-5">
-      <div class="col-3 card p-2 m-2"
+      <div class="col-3 card p-2 m-2 shadow"
       v-for="product in latestProducts"
       v-bind:key="product.id"
       >

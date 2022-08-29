@@ -5,7 +5,7 @@
         </div>
     <div class="col-10">
         <!---->
-    <div class="card mt-3">
+    <div class="card mt-3 shadow">
         <div class="card-body">
             <!---->
             <table class="table">
@@ -15,6 +15,7 @@
                 <th scope="col">Price</th>
                 <th scope="col">Quantity</th>
                 <th scope="col">Total</th>
+                <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
@@ -35,7 +36,7 @@
             <h2 class="col-2 mt-2">Summary</h2>
     </div>
 
-    <div class="card mt-3">
+    <div class="card mt-3 shadow">
         <div class="card-body text-align-start">
             <!---->
             <div class="row mt-3">
